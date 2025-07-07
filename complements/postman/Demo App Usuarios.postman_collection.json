@@ -1,0 +1,1171 @@
+{
+	"info": {
+		"_postman_id": "71c5b902-813d-475a-800b-916feea49d2f",
+		"name": "Demo App Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42594667"
+	},
+	"item": [
+		{
+			"name": "Ingresar Usuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "algo",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"victoria 1\",\r\n\t\"email\": \"vicky@email.cl\",\r\n\t\"password\": \"@V1cky\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"111\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/api/v1/users"
+			},
+			"response": [
+				{
+					"name": "Nombre invalido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "algo",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"victoria 1\",\r\n\t\"email\": \"vicky1@algo\",\r\n\t\"password\": \"@V1cky\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"111111111\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:07:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"The name must contain only letters and spaces.\"\n}"
+				},
+				{
+					"name": "Email Invalido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "algo",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"victoria\",\r\n\t\"email\": \"vicky1@algo\",\r\n\t\"password\": \"@V1cky\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"111111111\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:07:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Invalid email structure, the correct format is \\\"aaaa@dominio.cl\\\"\"\n}"
+				},
+				{
+					"name": "Invalid Password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "algo",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"victoria\",\r\n\t\"email\": \"vicky1@gmail.cl\",\r\n\t\"password\": \"V1cky\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"111111111\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:08:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Invalid password.\"\n}"
+				},
+				{
+					"name": "Email registered",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "algo",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"victoria\",\r\n\t\"email\": \"vicky1@gmail.cl\",\r\n\t\"password\": \"@V1cky\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"111111111\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:13:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"The email is already registered.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Buscar Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWNreUBlbWFpbC5jbCIsImlhdCI6MTc1MDk3Mjg0OCwiZXhwIjoxNzUwOTczMTQ4fQ.OIPZpevfC4cGUWgYwv9jEXX6_Kb71iukBCS_ybv2C28"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYWltZUBnbWFpbC5jbCIsImlhdCI6MTc1MDI4MTMyMiwiZXhwIjoxNzUwMzY3NzIyfQ.2fZ2Lfc2D0fEXTYS3Vq8NprCN5eyvoddaV3DQUKXtTM",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/api/v1/users/0ce9b6e5-69ac-4055-9ce5-01b13afdc597"
+			},
+			"response": [
+				{
+					"name": "Invalid Token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYWltZUBnbWFpbC5jbCIsImlhdCI6MTc1MDI4MTMyMiwiZXhwIjoxNzUwMzY3NzIyfQ.2fZ2Lfc2D0fEXTYS3Vq8NprCN5eyvoddaV3DQUKXtTM",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=ISO-8859-1"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:10:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 401,\n    \"message\": \"Invalid or expired JWT token\"\n}"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYWltZUBnbWFpbC5jbCIsImlhdCI6MTc1MDI4MTMyMiwiZXhwIjoxNzUwMzY3NzIyfQ.2fZ2Lfc2D0fEXTYS3Vq8NprCN5eyvoddaV3DQUKXtTM",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:12:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\",\n    \"name\": \"victoria\",\n    \"email\": \"vicky1@gmail.cl\",\n    \"phones\": [\n        {\n            \"number\": \"111111111\",\n            \"cityCode\": \"022\",\n            \"countryCode\": \"56\"\n        }\n    ],\n    \"createdAt\": \"2025-07-07T20:09:18.819+00:00\",\n    \"modified\": \"2025-07-07T20:09:18.819+00:00\",\n    \"lastLogin\": \"2025-07-07T20:09:18.819+00:00\",\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWNreTFAZ21haWwuY2wiLCJpYXQiOjE3NTE5MTg5NTksImV4cCI6MTc1MTkxOTg1OX0.8KmTLp9HdsmDePWp2WmX1sSoqpyQYUlipbmM138Y5ng\",\n    \"active\": true,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"update\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"users\": {\n            \"href\": \"http://localhost:8001/api/v1/users/list\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Modificar Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"andres\",\r\n\t\"email\": \"andres@gmail.com\",\r\n\t\"password\": \"D4b#dd\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"957429654\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/api/v1/users/55933cc6-8ad4-4462-ba47-99720438e5f3"
+			},
+			"response": [
+				{
+					"name": "User not exist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"david\",\r\n\t\"email\": \"david@gmail.com\",\r\n\t\"password\": \"D4b#dd\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"957429654\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e9"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:16:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 404,\n    \"message\": \"The user does not exist.\"\n}"
+				},
+				{
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"david\",\r\n\t\"email\": \"david@gmail.com\",\r\n\t\"password\": \"D4b#dd\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"957429654\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/b8c96961-3580-44ca-9edd-2ddbac72e243"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:17:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 401,\n    \"message\": \"Unauthorized access.\"\n}"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Victoria Maria\",\r\n\t\"email\": \"vicky@gmail.cl\",\r\n\t\"password\": \"@V1cky\",\r\n\t\"phones\": [\r\n        {\r\n            \"number\": \"957429654\",\r\n            \"cityCode\": \"022\",\r\n            \"countryCode\": \"56\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:27:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User updated successfully.\",\n    \"id\": \"50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\",\n    \"created\": \"2025-07-07T20:09:18.819+00:00\",\n    \"modified\": \"2025-07-07T20:27:22.422+00:00\",\n    \"lastLogin\": \"2025-07-07T20:24:40.649+00:00\",\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZEBnbWFpbC5jbCIsImlhdCI6MTc1MTkxOTg4MCwiZXhwIjoxNzUxOTIwNzgwfQ.dqQ_hZs--ISTIatcJfqiblsanRPK3IeqBvH68AS2WcM\",\n    \"isActive\": true,\n    \"phones\": [\n        {\n            \"number\": \"957429654\",\n            \"cityCode\": \"022\",\n            \"countryCode\": \"56\"\n        }\n    ],\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"users\": {\n            \"href\": \"http://localhost:8001/api/v1/users/list\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Cambio Estatus",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZEBlbWFpbC5jbCIsImlhdCI6MTc1MDQ1NTE0NiwiZXhwIjoxNzUwNDU1NDQ2fQ.wC5f1uznOk3sWK6RqisoaKcicciuLaQjL9oPWp8-8Mw"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/api/v1/users/7a2a3592-c462-41e0-9b90-8dd2a7b52b00/change-status"
+			},
+			"response": [
+				{
+					"name": "Already Active",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0/change-status"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:30:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"User is already active.\"\n}"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"active\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0/change-status"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:32:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\",\n    \"active\": false,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"update\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n        },\n        \"users\": {\n            \"href\": \"http://localhost:8001/api/v1/users/list\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWNreUBlbWFpbC5jbCIsImlhdCI6MTc1MDk3Mjg0OCwiZXhwIjoxNzUwOTczMTQ4fQ.OIPZpevfC4cGUWgYwv9jEXX6_Kb71iukBCS_ybv2C28"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "algo",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/api/v1/users/list"
+			},
+			"response": [
+				{
+					"name": "Listar Usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "algo",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/users/list"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:34:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_embedded\": {\n        \"users\": [\n            {\n                \"id\": \"50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\",\n                \"name\": \"Victoria Maria\",\n                \"email\": \"vicky@gmail.cl\",\n                \"phones\": [\n                    {\n                        \"number\": \"957429654\",\n                        \"cityCode\": \"022\",\n                        \"countryCode\": \"56\"\n                    }\n                ],\n                \"createdAt\": \"2025-07-07T20:09:18.819+00:00\",\n                \"modified\": \"2025-07-07T20:32:33.131+00:00\",\n                \"lastLogin\": \"2025-07-07T20:30:08.904+00:00\",\n                \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWNreUBnbWFpbC5jbCIsImlhdCI6MTc1MTkyMDIwOCwiZXhwIjoxNzUxOTIxMTA4fQ.QzcTdAu2fGMd2QN0xKwe3I6ho9OUBoWBS4P90m_170c\",\n                \"active\": false,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n                    },\n                    \"update\": {\n                        \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8001/api/v1/users/50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\"\n                    }\n                }\n            },\n            {\n                \"id\": \"b8c96961-3580-44ca-9edd-2ddbac72e243\",\n                \"name\": \"test\",\n                \"email\": \"test@gmail.cl\",\n                \"phones\": [\n                    {\n                        \"number\": \"111111111\",\n                        \"cityCode\": \"022\",\n                        \"countryCode\": \"56\"\n                    }\n                ],\n                \"createdAt\": \"2025-07-07T20:17:03.290+00:00\",\n                \"modified\": \"2025-07-07T20:17:03.290+00:00\",\n                \"lastLogin\": \"2025-07-07T20:17:03.290+00:00\",\n                \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNsIiwiaWF0IjoxNzUxOTE5NDIzLCJleHAiOjE3NTE5MjAzMjN9.nlpSJh9xDo5PA3KrajpwDdSbSXu9buQSP0xDj46hoLs\",\n                \"active\": true,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8001/api/v1/users/b8c96961-3580-44ca-9edd-2ddbac72e243\"\n                    },\n                    \"update\": {\n                        \"href\": \"http://localhost:8001/api/v1/users/b8c96961-3580-44ca-9edd-2ddbac72e243\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8001/api/v1/users/b8c96961-3580-44ca-9edd-2ddbac72e243\"\n                    }\n                }\n            }\n        ]\n    },\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8001/api/v1/users/list\"\n        },\n        \"create\": {\n            \"href\": \"http://localhost:8001/api/v1/users\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZGFuZHJlc0BlbWFpbC5jbCIsImlhdCI6MTc1MDk3NTU3NywiZXhwIjoxNzUwOTc1ODc3fQ.GZPBaew4qzTLBhzUwyxXY8uuiACar-9hpm0KcSiS3VA"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8001/api/v1/users/7d25ca37-d45d-4ed4-97c6-d0dd2ac17842"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"jaime@gmail.cl\",\r\n\t\"password\": \"D4b#dd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/api/v1/auth/login"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"david@gmail.cl\",\r\n\t\"password\": \"D4b#dd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/auth/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:24:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"50c7deb0-b8e5-4e38-a92a-a77d9a7086e0\",\n    \"lastLogin\": \"2025-07-07T20:24:40.649+00:00\",\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZEBnbWFpbC5jbCIsImlhdCI6MTc1MTkxOTg4MCwiZXhwIjoxNzUxOTIwNzgwfQ.dqQ_hZs--ISTIatcJfqiblsanRPK3IeqBvH68AS2WcM\",\n    \"active\": true\n}"
+				},
+				{
+					"name": "Inactive User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"vicky@gmail.cl\",\r\n\t\"password\": \"@V1cky\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8001/api/v1/auth/login"
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Jul 2025 20:34:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 403,\n    \"message\": \"User is inactive.\"\n}"
+				}
+			]
+		}
+	]
+}
